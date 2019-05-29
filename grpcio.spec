@@ -4,7 +4,7 @@
 #
 Name     : grpcio
 Version  : 1.20.0
-Release  : 25
+Release  : 26
 URL      : https://files.pythonhosted.org/packages/ae/b6/f58654d005ef714922ec75a3b208df31b27310cdafacc1f5d952e1a3ed30/grpcio-1.20.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/ae/b6/f58654d005ef714922ec75a3b208df31b27310cdafacc1f5d952e1a3ed30/grpcio-1.20.0.tar.gz
 Summary  : HTTP/2-based RPC framework
@@ -13,15 +13,20 @@ License  : Apache-2.0
 Requires: grpcio-license = %{version}-%{release}
 Requires: grpcio-python = %{version}-%{release}
 Requires: grpcio-python3 = %{version}-%{release}
+Requires: Cython
 Requires: coverage
 Requires: enum34
-Requires: futures
 Requires: protobuf
 Requires: six
 Requires: wheel
 BuildRequires : Cython
 BuildRequires : buildreq-distutils3
+BuildRequires : coverage
+BuildRequires : enum34
+BuildRequires : protobuf
 BuildRequires : python3-dev
+BuildRequires : six
+BuildRequires : wheel
 
 %description
 ===========
@@ -72,8 +77,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555449289
-export LDFLAGS="${LDFLAGS} -fno-lto"
+export SOURCE_DATE_EPOCH=1559111902
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
