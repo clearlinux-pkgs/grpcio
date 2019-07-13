@@ -4,7 +4,7 @@
 #
 Name     : grpcio
 Version  : 1.22.0
-Release  : 27
+Release  : 28
 URL      : https://files.pythonhosted.org/packages/19/c1/bee35b6efcace3c77cb275c6465ba9e574d01acf9abf785253fdeed526f3/grpcio-1.22.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/19/c1/bee35b6efcace3c77cb275c6465ba9e574d01acf9abf785253fdeed526f3/grpcio-1.22.0.tar.gz
 Summary  : HTTP/2-based RPC framework
