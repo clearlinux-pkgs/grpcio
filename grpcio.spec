@@ -4,7 +4,7 @@
 #
 Name     : grpcio
 Version  : 1.22.0
-Release  : 28
+Release  : 29
 URL      : https://files.pythonhosted.org/packages/19/c1/bee35b6efcace3c77cb275c6465ba9e574d01acf9abf785253fdeed526f3/grpcio-1.22.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/19/c1/bee35b6efcace3c77cb275c6465ba9e574d01acf9abf785253fdeed526f3/grpcio-1.22.0.tar.gz
 Summary  : HTTP/2-based RPC framework
@@ -27,11 +27,14 @@ BuildRequires : protobuf
 BuildRequires : python3-dev
 BuildRequires : six
 BuildRequires : wheel
+Patch1: Rename-gettid-functions.patch
 
 %description
-gRPC - An RPC library and framework
-===================================
-gRPC is a modern, open source, high-performance remote procedure call (RPC) framework that can run anywhere. gRPC enables client and server applications to communicate transparently, and simplifies the building of connected systems.
+===========
+        
+        |compat_check_pypi|
+        
+        Package for gRPC Python.
 
 %package license
 Summary: license components for the grpcio package.
@@ -61,18 +64,19 @@ python3 components for the grpcio package.
 
 %prep
 %setup -q -n grpcio-1.22.0
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562540106
+export SOURCE_DATE_EPOCH=1565813762
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
-export CXXFLAGS="$CXXFLAGS -fno-lto "
+export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FCFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
