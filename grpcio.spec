@@ -4,7 +4,7 @@
 #
 Name     : grpcio
 Version  : 1.22.0
-Release  : 29
+Release  : 30
 URL      : https://files.pythonhosted.org/packages/19/c1/bee35b6efcace3c77cb275c6465ba9e574d01acf9abf785253fdeed526f3/grpcio-1.22.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/19/c1/bee35b6efcace3c77cb275c6465ba9e574d01acf9abf785253fdeed526f3/grpcio-1.22.0.tar.gz
 Summary  : HTTP/2-based RPC framework
@@ -28,6 +28,7 @@ BuildRequires : python3-dev
 BuildRequires : six
 BuildRequires : wheel
 Patch1: Rename-gettid-functions.patch
+Patch2: CVE-2019-9512.patch
 
 %description
 ===========
@@ -65,13 +66,14 @@ python3 components for the grpcio package.
 %prep
 %setup -q -n grpcio-1.22.0
 %patch1 -p1
+%patch2 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1565813762
+export SOURCE_DATE_EPOCH=1565814340
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
