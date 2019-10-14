@@ -4,7 +4,7 @@
 #
 Name     : grpcio
 Version  : 1.22.0
-Release  : 30
+Release  : 31
 URL      : https://files.pythonhosted.org/packages/19/c1/bee35b6efcace3c77cb275c6465ba9e574d01acf9abf785253fdeed526f3/grpcio-1.22.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/19/c1/bee35b6efcace3c77cb275c6465ba9e574d01acf9abf785253fdeed526f3/grpcio-1.22.0.tar.gz
 Summary  : HTTP/2-based RPC framework
@@ -15,14 +15,12 @@ Requires: grpcio-python = %{version}-%{release}
 Requires: grpcio-python3 = %{version}-%{release}
 Requires: Cython
 Requires: coverage
-Requires: enum34
 Requires: protobuf
 Requires: six
 Requires: wheel
 BuildRequires : Cython
 BuildRequires : buildreq-distutils3
 BuildRequires : coverage
-BuildRequires : enum34
 BuildRequires : protobuf
 BuildRequires : python3-dev
 BuildRequires : six
@@ -73,7 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1565814340
+export SOURCE_DATE_EPOCH=1571080735
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
@@ -86,7 +84,7 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/grpcio
-cp LICENSE %{buildroot}/usr/share/package-licenses/grpcio/LICENSE
+cp %{_builddir}/grpcio-1.22.0/LICENSE %{buildroot}/usr/share/package-licenses/grpcio/2b8b815229aa8a61e483fb4ba0588b8b6c491890
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -97,7 +95,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/grpcio/LICENSE
+/usr/share/package-licenses/grpcio/2b8b815229aa8a61e483fb4ba0588b8b6c491890
 
 %files python
 %defattr(-,root,root,-)
