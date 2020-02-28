@@ -4,7 +4,7 @@
 #
 Name     : grpcio
 Version  : 1.27.2
-Release  : 41
+Release  : 42
 URL      : https://files.pythonhosted.org/packages/74/52/9204d08bf37ac2505ebab2fa93b808fac87564580d7cc839db2fe11c3bdd/grpcio-1.27.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/74/52/9204d08bf37ac2505ebab2fa93b808fac87564580d7cc839db2fe11c3bdd/grpcio-1.27.2.tar.gz
 Summary  : HTTP/2-based RPC framework
@@ -52,6 +52,7 @@ python components for the grpcio package.
 Summary: python3 components for the grpcio package.
 Group: Default
 Requires: python3-core
+Provides: pypi(grpcio)
 
 %description python3
 python3 components for the grpcio package.
@@ -66,7 +67,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1581696183
+export SOURCE_DATE_EPOCH=1582933561
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fcf-protection=full -fno-lto -fstack-protector-strong "
