@@ -4,7 +4,7 @@
 #
 Name     : grpcio
 Version  : 1.37.0
-Release  : 62
+Release  : 63
 URL      : https://files.pythonhosted.org/packages/0c/c5/f38a7ec5966b2d3b38488494213deaeec421aeef0ba6559e15f58286416c/grpcio-1.37.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/0c/c5/f38a7ec5966b2d3b38488494213deaeec421aeef0ba6559e15f58286416c/grpcio-1.37.0.tar.gz
 Summary  : HTTP/2-based RPC framework
@@ -72,10 +72,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
 export SOURCE_DATE_EPOCH=1617892674
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FCFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
-export FFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
-export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
+export FCFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
+export FFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
+export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
