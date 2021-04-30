@@ -1,5 +1,4 @@
 # This file contains recursive sources that require this package
-ceph
 google-api-core
 googleapis-common-protos
 tensorboard
