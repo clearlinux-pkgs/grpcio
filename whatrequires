@@ -5,4 +5,3 @@ grpcio-channelz
 grpcio-health-checking
 grpcio-reflection
 grpcio-tools
-tensorboard
